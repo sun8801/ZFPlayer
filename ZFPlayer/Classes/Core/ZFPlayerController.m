@@ -953,6 +953,10 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
     return UIStatusBarAnimationSlide;
 }
 
+- (BOOL (^)())allowOrientationRotationBlock {
+    return self.orientationObserver.allowOrientationRotationBlock;
+}
+
 #pragma mark - setter
 
 - (void)setOrientationWillChange:(void (^)(ZFPlayerController * _Nonnull, BOOL))orientationWillChange {
@@ -979,6 +983,10 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
 - (void)setAllowOrentitaionRotation:(BOOL)allowOrentitaionRotation {
     objc_setAssociatedObject(self, @selector(allowOrentitaionRotation), @(allowOrentitaionRotation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.orientationObserver.allowOrientationRotation = allowOrentitaionRotation;
+}
+
+- (void)setAllowOrientationRotationBlock:(BOOL (^)())allowOrientationRotationBlock {
+    self.orientationObserver.allowOrientationRotationBlock = allowOrientationRotationBlock;
 }
 
 - (void)setExitFullScreenWhenStop:(BOOL)exitFullScreenWhenStop {

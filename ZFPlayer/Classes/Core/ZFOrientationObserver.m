@@ -142,6 +142,11 @@
 
 - (void)handleDeviceOrientationChange {
     if (self.fullScreenMode == ZFFullScreenModePortrait || !self.allowOrientationRotation) return;
+    if (self.allowOrientationRotationBlock) {
+        if (!self.allowOrientationRotationBlock()) {
+            return;
+        }
+    }
     [self.landscapeRotationManager handleDeviceOrientationChange];
 }
 
@@ -247,7 +252,7 @@
 
 - (UIView *)fullScreenContainerView {
     if (self.fullScreenMode == ZFFullScreenModeLandscape) {
-        return self.landscapeRotationManager.fullScreenContainerView;
+        return self.landscapeRotationManager.landscapeViewController.view;
     } else if (self.fullScreenMode == ZFFullScreenModePortrait) {
         return self.portraitViewController.view;
     }

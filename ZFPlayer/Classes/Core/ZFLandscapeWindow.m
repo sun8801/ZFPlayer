@@ -33,7 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.windowLevel = UIWindowLevelStatusBar - 1;
+        self.windowLevel = UIWindowLevelNormal + 100;
         if (@available(iOS 13.0, *)) {
             if (self.windowScene == nil) {
                 self.windowScene = UIApplication.sharedApplication.keyWindow.windowScene;
