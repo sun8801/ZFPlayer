@@ -953,7 +953,7 @@ static NSMutableDictionary <NSString* ,NSNumber *> *_zfPlayRecords;
     return UIStatusBarAnimationSlide;
 }
 
-- (BOOL (^)())allowOrientationRotationBlock {
+- (BOOL (^)(void))allowOrientationRotationBlock {
     return self.orientationObserver.allowOrientationRotationBlock;
 }
 

@@ -132,7 +132,7 @@ typedef NS_OPTIONS(NSUInteger, ZFDisablePortraitGestureTypes) {
 /// default is YES.
 @property (nonatomic, assign) BOOL allowOrientationRotation;
 
-@property (nonatomic, copy, nullable) BOOL(^allowOrientationRotationBlock)();
+@property (nonatomic, copy, nullable) BOOL(^allowOrientationRotationBlock)(void);
 
 /// The support Interface Orientation,default is ZFInterfaceOrientationMaskAllButUpsideDown
 @property (nonatomic, assign) ZFInterfaceOrientationMask supportInterfaceOrientation;
